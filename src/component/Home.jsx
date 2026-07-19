@@ -39,7 +39,7 @@ const Home = () => {
             Hello, I'm
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mt-[calc(var(--spacing)*30)] leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold sm:mt-[calc(var(--spacing)*30)] mt-3 leading-tight">
             Kausik <span className="text-gray-500">Das</span>
           </h1>
 

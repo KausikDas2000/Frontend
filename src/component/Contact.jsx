@@ -30,7 +30,7 @@ const Contact = () => {
 
     try {
       const res = await axios.post(
-        "flourishing-manatee-340b6b.netlify.app",
+        "https://portfoliobackend-4gyn.onrender.com/api/contact",
         formData
       );
 

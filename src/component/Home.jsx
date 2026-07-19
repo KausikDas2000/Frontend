@@ -109,7 +109,7 @@ const Home = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex justify-center order-1 md:order-2">
+        <div className="flex justify-center order-1 md:order-2 mt-10 md:mt-0">
           <div className="relative">
             {/* Background Circle */}
             <div className="absolute -inset-6 sm:-inset-10 rounded-full bg-gray-100 -z-10"></div>

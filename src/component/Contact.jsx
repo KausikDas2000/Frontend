@@ -123,21 +123,21 @@ const Contact = () => {
             {/* Social Icons */}
             <div className="flex gap-4 mt-10">
               <a
-                href="#"
+                 href="https://github.com/KausikDas2000"
                 className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition"
               >
                 <FaGithub />
               </a>
 
               <a
-                href="#"
+                 href="https://www.linkedin.com/in/kausik-das-444a36399"
                 className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition"
               >
                 <FaLinkedin />
               </a>
 
               <a
-                href="#"
+               href="https://www.instagram.com/kausik_official__/"
                 className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition"
               >
                 <FaInstagram />

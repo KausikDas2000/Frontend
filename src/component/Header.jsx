@@ -91,15 +91,7 @@ const Header = () => {
             </NavLink>
           </li>
 
-          <li>
-            <NavLink
-              to="/skills"
-              className={navLinkClass}
-              onClick={() => setMenu(false)}
-            >
-              Skills
-            </NavLink>
-          </li>
+         
 
           <li>
             <NavLink

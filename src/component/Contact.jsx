@@ -12,7 +12,7 @@ import {
 
 const Contact = () => {
 
-  const [Loading, setLoading] = useState(false)
+  const [loading, setloading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,7 +30,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setLoading(true);
+    setloading(true);
 
     try {
       const res = await axios.post(
@@ -50,7 +50,7 @@ const Contact = () => {
       console.error(error);
       alert("Failed to send message");
     } finally {
-      setLoading(false);
+      setloading(false);
     }
   };
 

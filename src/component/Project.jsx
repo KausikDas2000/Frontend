@@ -4,6 +4,7 @@ import {
   FaExternalLinkAlt,
   FaCode,
 } from "react-icons/fa";
+import posthog from "posthog-js";
 
 const Projects = () => {
   return (
@@ -90,6 +91,7 @@ const Projects = () => {
 
                 <a
                   href="#"
+                  onClick={() => posthog.capture("project_source_code_clicked", { project_name: "Student Management System" })}
                   className="bg-black text-white px-6 py-3 rounded-full flex items-center gap-3 hover:bg-gray-800 transition"
                 >
                   <FaGithub />
@@ -98,6 +100,7 @@ const Projects = () => {
 
                 <a
                   href="#"
+                  onClick={() => posthog.capture("project_details_clicked", { project_name: "Student Management System" })}
                   className="border-2 border-black px-6 py-3 rounded-full flex items-center gap-3 hover:bg-black hover:text-white transition"
                 >
                   <FaExternalLinkAlt />
@@ -164,6 +167,7 @@ const Projects = () => {
 
                 <a
                   href="#"
+                  onClick={() => posthog.capture("project_source_code_clicked", { project_name: "E-Commerce Website" })}
                   className="bg-black text-white px-6 py-3 rounded-full flex items-center gap-3 hover:bg-gray-800 transition"
                 >
                   <FaGithub />
@@ -172,6 +176,7 @@ const Projects = () => {
 
                 <a
                   href="#"
+                  onClick={() => posthog.capture("project_details_clicked", { project_name: "E-Commerce Website" })}
                   className="border-2 border-black px-6 py-3 rounded-full flex items-center gap-3 hover:bg-black hover:text-white transition"
                 >
                   <FaExternalLinkAlt />

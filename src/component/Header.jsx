@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import posthog from "posthog-js";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
@@ -57,7 +58,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          onClick={() => setMenu(!menu)}
+          onClick={() => { if (!menu) posthog.capture("mobile_menu_opened"); setMenu(!menu); }}
           className="md:hidden text-2xl"
         >
           {menu ? <FaTimes /> : <FaBars />}

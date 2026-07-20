@@ -8,6 +8,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import logo from "../image/logo.JPG";
+import posthog from "posthog-js";
 
 const Home = () => {
   const typedRef = useRef(null);
@@ -62,6 +63,7 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10 justify-center md:justify-start">
             <Link
               to="/contact"
+              onClick={() => posthog.capture("hire_me_clicked", { location: "home_hero" })}
               className="group bg-black text-white px-7 py-3.5 rounded-full font-semibold flex items-center justify-center gap-3 hover:bg-gray-800 duration-300 shadow-lg hover:scale-105"
             >
               Hire Me
@@ -71,6 +73,7 @@ const Home = () => {
             <a
               href="/KausikDas.pdf"
               download
+              onClick={() => posthog.capture("cv_downloaded")}
               className="border-2 border-black px-7 py-3.5 rounded-full hover:bg-black hover:text-white duration-300 hover:scale-105 text-center"
             >
               Download CV
@@ -83,6 +86,7 @@ const Home = () => {
               href="https://github.com/KausikDas2000"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => posthog.capture("social_link_clicked", { platform: "github", location: "home" })}
               className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition duration-300 hover:scale-110"
             >
               <FaGithub size={20} />
@@ -92,6 +96,7 @@ const Home = () => {
               href="https://www.linkedin.com/in/kausik-das-444a36399"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => posthog.capture("social_link_clicked", { platform: "linkedin", location: "home" })}
               className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition duration-300 hover:scale-110"
             >
               <FaLinkedin size={20} />
@@ -101,6 +106,7 @@ const Home = () => {
               href="https://www.instagram.com/kausik_official__/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => posthog.capture("social_link_clicked", { platform: "instagram", location: "home" })}
               className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition duration-300 hover:scale-110"
             >
               <FaInstagram size={20} />

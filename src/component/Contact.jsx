@@ -11,6 +11,8 @@ import {
 } from "react-icons/fa";
 
 const Contact = () => {
+
+  const [Loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,6 +29,8 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     try {
       const res = await axios.post(
@@ -45,6 +49,8 @@ const Contact = () => {
     } catch (error) {
       console.error(error);
       alert("Failed to send message");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -101,7 +107,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold">Phone</h4>
                   <p className="text-gray-600">
-                    +91 0000000000
+                    +91 9123830509
                   </p>
                 </div>
               </div>
@@ -123,21 +129,21 @@ const Contact = () => {
             {/* Social Icons */}
             <div className="flex gap-4 mt-10">
               <a
-                 href="https://github.com/KausikDas2000"
+                href="https://github.com/KausikDas2000"
                 className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition"
               >
                 <FaGithub />
               </a>
 
               <a
-                 href="https://www.linkedin.com/in/kausik-das-444a36399"
+                href="https://www.linkedin.com/in/kausik-das-444a36399"
                 className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition"
               >
                 <FaLinkedin />
               </a>
 
               <a
-               href="https://www.instagram.com/kausik_official__/"
+                href="https://www.instagram.com/kausik_official__/"
                 className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition"
               >
                 <FaInstagram />
@@ -194,11 +200,46 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="bg-black text-white px-8 py-4 rounded-full flex items-center gap-3 hover:bg-gray-800 transition hover:scale-105"
+                disabled={loading}
+                className={`px-8 py-4 rounded-full flex items-center gap-3 transition duration-300
+    ${loading
+                    ? "bg-gray-500 cursor-not-allowed opacity-70"
+                    : "bg-black text-white hover:bg-gray-800 hover:scale-105"
+                  }`}
               >
-                Send Message
-                <FaPaperPlane />
+                {loading ? (
+                  <>
+                    Sending...
+                    <svg
+                      className="w-5 h-5 animate-spin"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <FaPaperPlane />
+                  </>
+                )}
               </button>
+
+
             </form>
           </div>
         </div>

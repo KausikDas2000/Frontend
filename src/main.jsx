@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import posthog from 'posthog-js'
 import './index.css'
 import App from './App.jsx'
 import Home from './component/Home.jsx'
@@ -8,6 +9,11 @@ import Contact from './component/Contact.jsx'
 import { Route , RouterProvider , createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Projects from './component/Project.jsx'
+
+posthog.init(import.meta.env.VITE_PUBLIC_POSTHOG_KEY, {
+  api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
+  defaults: '2026-05-30',
+})
 
 
 const router = createBrowserRouter([

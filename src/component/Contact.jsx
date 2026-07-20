@@ -9,6 +9,7 @@ import {
   FaInstagram,
   FaPaperPlane,
 } from "react-icons/fa";
+import posthog from "posthog-js";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +35,8 @@ const Contact = () => {
         formData
       );
 
+      posthog.capture("contact_form_submitted", { subject: formData.subject });
+
       alert(res.data.message);
 
       setFormData({
@@ -43,6 +46,8 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
+      posthog.captureException(error, { message: "contact_form_failed" });
+      posthog.capture("contact_form_failed");
       console.error(error);
       alert("Failed to send message");
     }
